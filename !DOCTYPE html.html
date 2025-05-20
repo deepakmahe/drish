@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Congrats Drishya</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease;
+    }
+
+    #messageBox {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .main-message {
+      font-size: 2rem;
+      color: #ffffff;
+      background-color: #4CAF50;
+      padding: 20px 30px;
+      border-radius: 15px;
+      animation: bounce 1s ease infinite;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sub-message {
+      font-size: 1.5rem;
+      color: #333;
+      background-color: #fff9c4;
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #673ab7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: fadeIn 3s ease;
+    }
+
+    button:hover {
+      background-color: #512da8;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click Here Drishya</h1>
+  <button onclick="showMessage()">Click Me</button>
+
+  <div id="messageBox">
+    <div class="main-message">🎉🎊 Congrats Drishya On Getting Recruited To TCS 🎊🎉</div>
+    <div class="sub-message">💸 Appo oru 1000 GPay Cheythek 😁</div>
+  </div>
+
+  <!-- Background Music (autoplay + loop) -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/02/27/audio_a3f2d8c55a.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- GPay Sound -->
+  <audio id="gpaySound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d83b7b4895.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    function showMessage() {
+      document.getElementById("messageBox").style.display = "flex";
+
+      // Play confetti
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      // Play GPay sound
+      document.getElementById("gpaySound").play();
+
+      // Start background music (only once)
+      const bgMusic = document.getElementById("bgMusic");
+      if (bgMusic.paused) {
+        bgMusic.volume = 0.5;
+        bgMusic.play();
+      }
+    }
+  </script>
+
+</body>
+</html>
